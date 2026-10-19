@@ -1,0 +1,847 @@
+{
+  "Competitive Programming Main Template": {
+    "prefix": "cp",
+    "body": [
+      "import java.io.*;",
+      "import java.util.*;",
+      "",
+      "public class ${TM_FILENAME_BASE} {",
+      "    static FastScanner fs = new FastScanner();",
+      "    static StringBuilder out = new StringBuilder();",
+      "",
+      "    public static void main(String[] args) throws Exception {",
+      "        int t = fs.nextInt();",
+      "        while (t-- > 0) solve();",
+      "        System.out.print(out);",
+      "    }",
+      "",
+      "    static void solve() throws Exception {",
+      "        ${2:// solution}",
+      "    }",
+      "",
+      "    static class FastScanner {",
+      "        private final InputStream in = System.in;",
+      "        private final byte[] buffer = new byte[1 << 16];",
+      "        private int ptr, len;",
+      "",
+      "        private int read() throws IOException {",
+      "            if (ptr >= len) {",
+      "                len = in.read(buffer);",
+      "                ptr = 0;",
+      "                if (len <= 0) return -1;",
+      "            }",
+      "            return buffer[ptr++];",
+      "        }",
+      "",
+      "        String nextToken() throws IOException {",
+      "            StringBuilder s = new StringBuilder();",
+      "            int c;",
+      "            do { c = read(); } while (c <= ' ' && c != -1);",
+      "            while (c > ' ') { s.append((char) c); c = read(); }",
+      "            return s.toString();",
+      "        }",
+      "",
+      "        String next() throws IOException { return nextToken(); }",
+      "        int nextInt() throws IOException { return Integer.parseInt(nextToken()); }",
+      "        long nextLong() throws IOException { return Long.parseLong(nextToken()); }",
+      "        double nextDouble() throws IOException { return Double.parseDouble(nextToken()); }",
+      "        char nextChar() throws IOException { return nextToken().charAt(0); }",
+      "    }",
+      "}"
+    ],
+    "description": "Complete Java competitive-programming template with fast input and buffered output"
+  },
+  "Solve Method": {
+    "prefix": "solve",
+    "body": [
+      "static void solve() throws Exception {",
+      "    ${1:// solution}",
+      "}"
+    ],
+    "description": "Create a solve method"
+  },
+  "Fast Scanner": {
+    "prefix": "fs",
+    "body": [
+      "static class FastScanner {",
+      "    private final InputStream in = System.in;",
+      "    private final byte[] buffer = new byte[1 << 16];",
+      "    private int ptr, len;",
+      "",
+      "    private int read() throws IOException {",
+      "        if (ptr >= len) {",
+      "            len = in.read(buffer);",
+      "            ptr = 0;",
+      "            if (len <= 0) return -1;",
+      "        }",
+      "        return buffer[ptr++];",
+      "    }",
+      "",
+      "    String nextToken() throws IOException {",
+      "        StringBuilder s = new StringBuilder();",
+      "        int c;",
+      "        do { c = read(); } while (c <= ' ' && c != -1);",
+      "        while (c > ' ') { s.append((char) c); c = read(); }",
+      "        return s.toString();",
+      "    }",
+      "",
+      "    int nextInt() throws IOException { return Integer.parseInt(nextToken()); }",
+      "    long nextLong() throws IOException { return Long.parseLong(nextToken()); }",
+      "    String nextString() throws IOException { return nextToken(); }",
+      "    char nextChar() throws IOException { return nextToken().charAt(0); }",
+      "}"
+    ],
+    "description": "Fast byte-buffered input helper"
+  },
+  "Fast Output with StringBuilder": {
+    "prefix": "out",
+    "body": [
+      "static StringBuilder out = new StringBuilder();",
+      "",
+      "${1:out.append(ans).append('\\n');}",
+      "",
+      "System.out.print(out);"
+    ],
+    "description": "Buffer output and print once after processing"
+  },
+  "For Loop": {
+    "prefix": "fori",
+    "body": [
+      "for (int i = 0; i < ${1:n}; i++) {",
+      "    ${2}",
+      "}"
+    ],
+    "description": "Forward int loop"
+  },
+  "Nested For Loop": {
+    "prefix": "forj",
+    "body": [
+      "for (int j = 0; j < ${1:m}; j++) {",
+      "    ${2}",
+      "}"
+    ],
+    "description": "Inner forward int loop"
+  },
+  "Third Nested For Loop": {
+    "prefix": "fork",
+    "body": [
+      "for (int k = 0; k < ${1:n}; k++) {",
+      "    ${2}",
+      "}"
+    ],
+    "description": "Third-level forward int loop"
+  },
+  "Reverse For Loop": {
+    "prefix": "forr",
+    "body": [
+      "for (int i = ${1:n} - 1; i >= 0; i--) {",
+      "    ${2}",
+      "}"
+    ],
+    "description": "Reverse int loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while (${1:condition}) {",
+      "    ${2}",
+      "}"
+    ],
+    "description": "While loop"
+  },
+  "Do While Loop": {
+    "prefix": "dowhile",
+    "body": [
+      "do {",
+      "    ${1}",
+      "} while (${2:condition});"
+    ],
+    "description": "Do-while loop"
+  },
+  "If Else": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition}) {",
+      "    ${2}",
+      "} else {",
+      "    ${3}",
+      "}"
+    ],
+    "description": "If/else block"
+  },
+  "Switch": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:value}) {",
+      "    case ${2:1}:",
+      "        ${3}",
+      "        break;",
+      "    default:",
+      "        ${4}",
+      "}"
+    ],
+    "description": "Switch statement"
+  },
+  "Read Int Input": {
+    "prefix": "ri",
+    "body": [
+      "int ${1:n} = fs.nextInt();"
+    ],
+    "description": "Read an int using the main template FastScanner"
+  },
+  "Read Long Input": {
+    "prefix": "rl",
+    "body": [
+      "long ${1:n} = fs.nextLong();"
+    ],
+    "description": "Read a long using the main template FastScanner"
+  },
+  "Read String Input": {
+    "prefix": "rs",
+    "body": [
+      "String ${1:s} = fs.nextString();"
+    ],
+    "description": "Read a String using the main template FastScanner"
+  },
+  "Read Character Input": {
+    "prefix": "rc",
+    "body": [
+      "char ${1:c} = fs.nextChar();"
+    ],
+    "description": "Read a character using the main template FastScanner"
+  },
+  "Read Int Array Input": {
+    "prefix": "readarr",
+    "body": [
+      "int[] ${1:a} = new int[${2:n}];",
+      "for (int i = 0; i < ${2:n}; i++) ${1:a}[i] = fs.nextInt();"
+    ],
+    "description": "Read an int array using the main template FastScanner"
+  },
+  "Read Character": {
+    "prefix": "scanchar",
+    "body": [
+      "static char scanChar() throws IOException {",
+      "    return nextToken().charAt(0);",
+      "}"
+    ],
+    "description": "Read the first character of the next token"
+  },
+  "Read Character Array": {
+    "prefix": "chararr",
+    "body": [
+      "static char[] scanCharArray() throws IOException {",
+      "    return nextToken().toCharArray();",
+      "}"
+    ],
+    "description": "Read a token as a character array"
+  },
+  "Read String Array": {
+    "prefix": "strarr",
+    "body": [
+      "static String[] scanStringArray(int n) throws IOException {",
+      "    String[] s = new String[n];",
+      "    for (int i = 0; i < n; i++) s[i] = scanString();",
+      "    return s;",
+      "}"
+    ],
+    "description": "Read n strings into an array"
+  },
+  "Read Int Array": {
+    "prefix": "arr",
+    "body": [
+      "int[] ${1:a} = new int[${2:n}];",
+      "for (int i = 0; i < ${2:n}; i++) ${1:a}[i] = ${3:scanInt()};"
+    ],
+    "description": "Read an int array"
+  },
+  "Read Long Array": {
+    "prefix": "longarr",
+    "body": [
+      "long[] ${1:a} = new long[${2:n}];",
+      "for (int i = 0; i < ${2:n}; i++) ${1:a}[i] = ${3:scanLong()};"
+    ],
+    "description": "Read a long array"
+  },
+  "Read Int Matrix": {
+    "prefix": "mat",
+    "body": [
+      "static int[][] scanIntMatrix(int n, int m) throws IOException {",
+      "    int[][] a = new int[n][m];",
+      "    for (int i = 0; i < n; i++)",
+      "        for (int j = 0; j < m; j++)",
+      "            a[i][j] = scanInt();",
+      "    return a;",
+      "}"
+    ],
+    "description": "Read an n by m int matrix"
+  },
+  "Read Long Matrix": {
+    "prefix": "longmat",
+    "body": [
+      "static long[][] scanLongMatrix(int n, int m) throws IOException {",
+      "    long[][] a = new long[n][m];",
+      "    for (int i = 0; i < n; i++)",
+      "        for (int j = 0; j < m; j++)",
+      "            a[i][j] = scanLong();",
+      "    return a;",
+      "}"
+    ],
+    "description": "Read an n by m long matrix"
+  },
+  "Prefix Sum": {
+    "prefix": "prefix",
+    "body": [
+      "static long[] prefix(long[] a) {",
+      "    long[] p = new long[a.length + 1];",
+      "    for (int i = 0; i < a.length; i++) p[i + 1] = p[i] + a[i];",
+      "    return p;",
+      "}"
+    ],
+    "description": "Build a 1-indexed prefix-sum array"
+  },
+  "Suffix Sum": {
+    "prefix": "suffix",
+    "body": [
+      "static long[] suffix(long[] a) {",
+      "    long[] s = new long[a.length + 1];",
+      "    for (int i = a.length - 1; i >= 0; i--) s[i] = s[i + 1] + a[i];",
+      "    return s;",
+      "}"
+    ],
+    "description": "Build a suffix-sum array"
+  },
+  "Difference Array Range Add": {
+    "prefix": "diffarr",
+    "body": [
+      "static void rangeAdd(long[] diff, int l, int r, long value) {",
+      "    diff[l] += value;",
+      "    if (r + 1 < diff.length) diff[r + 1] -= value;",
+      "}"
+    ],
+    "description": "Apply a range addition to a difference array using inclusive indices"
+  },
+  "Lower Bound Long": {
+    "prefix": "lb",
+    "body": [
+      "static int lowerBound(long[] a, long x) {",
+      "    int l = 0, r = a.length;",
+      "    while (l < r) {",
+      "        int mid = l + (r - l) / 2;",
+      "        if (a[mid] < x) l = mid + 1;",
+      "        else r = mid;",
+      "    }",
+      "    return l;",
+      "}"
+    ],
+    "description": "First index with value greater than or equal to x in a sorted long array"
+  },
+  "Upper Bound Long": {
+    "prefix": "ub",
+    "body": [
+      "static int upperBound(long[] a, long x) {",
+      "    int l = 0, r = a.length;",
+      "    while (l < r) {",
+      "        int mid = l + (r - l) / 2;",
+      "        if (a[mid] <= x) l = mid + 1;",
+      "        else r = mid;",
+      "    }",
+      "    return l;",
+      "}"
+    ],
+    "description": "First index with value greater than x in a sorted long array"
+  },
+  "Binary Search": {
+    "prefix": "binsearch",
+    "body": [
+      "int l = ${1:0}, r = ${2:n};",
+      "while (l < r) {",
+      "    int mid = l + (r - l) / 2;",
+      "    if (${3:condition}) r = mid;",
+      "    else l = mid + 1;",
+      "}",
+      "${4:int answer = l;}"
+    ],
+    "description": "Binary search for the first position satisfying a monotonic condition"
+  },
+  "Reverse Long Array": {
+    "prefix": "reverse",
+    "body": [
+      "static void reverse(long[] a) {",
+      "    for (int l = 0, r = a.length - 1; l < r; l++, r--) {",
+      "        long t = a[l];",
+      "        a[l] = a[r];",
+      "        a[r] = t;",
+      "    }",
+      "}"
+    ],
+    "description": "Reverse a long array in place"
+  },
+  "Shuffle Long Array": {
+    "prefix": "shuffle",
+    "body": [
+      "static final Random rnd = new Random();",
+      "",
+      "static void shuffle(long[] a) {",
+      "    for (int i = a.length - 1; i > 0; i--) {",
+      "        int j = rnd.nextInt(i + 1);",
+      "        long t = a[i];",
+      "        a[i] = a[j];",
+      "        a[j] = t;",
+      "    }",
+      "}",
+      "",
+      "shuffle(${1:a});",
+      "Arrays.sort(${1:a});"
+    ],
+    "description": "Fisher-Yates shuffle followed by sorting"
+  },
+  "Pair Class": {
+    "prefix": "pair",
+    "body": [
+      "static class Pair {",
+      "    int first, second;",
+      "    Pair(int first, int second) {",
+      "        this.first = first;",
+      "        this.second = second;",
+      "    }",
+      "}"
+    ],
+    "description": "Simple int pair class"
+  },
+  "Triple Class": {
+    "prefix": "triple",
+    "body": [
+      "static class Triple {",
+      "    int a, b, c;",
+      "    Triple(int a, int b, int c) {",
+      "        this.a = a;",
+      "        this.b = b;",
+      "        this.c = c;",
+      "    }",
+      "}"
+    ],
+    "description": "Simple int triple class"
+  },
+  "Disjoint Set Union": {
+    "prefix": "dsu",
+    "body": [
+      "static class DSU {",
+      "    int[] parent, size;",
+      "",
+      "    DSU(int n) {",
+      "        parent = new int[n];",
+      "        size = new int[n];",
+      "        for (int i = 0; i < n; i++) {",
+      "            parent[i] = i;",
+      "            size[i] = 1;",
+      "        }",
+      "    }",
+      "",
+      "    int find(int x) {",
+      "        if (parent[x] != x) parent[x] = find(parent[x]);",
+      "        return parent[x];",
+      "    }",
+      "",
+      "    boolean union(int a, int b) {",
+      "        a = find(a);",
+      "        b = find(b);",
+      "        if (a == b) return false;",
+      "        if (size[a] < size[b]) {",
+      "            int t = a;",
+      "            a = b;",
+      "            b = t;",
+      "        }",
+      "        parent[b] = a;",
+      "        size[a] += size[b];",
+      "        return true;",
+      "    }",
+      "}"
+    ],
+    "description": "Union-find with path compression and union by size"
+  },
+  "Four Direction Vectors": {
+    "prefix": "dir4",
+    "body": [
+      "static final int[] dx = {-1, 1, 0, 0};",
+      "static final int[] dy = {0, 0, -1, 1};"
+    ],
+    "description": "Four-neighbor grid direction vectors"
+  },
+  "Eight Direction Vectors": {
+    "prefix": "dir8",
+    "body": [
+      "static final int[] dx8 = {-1, -1, -1, 0, 0, 1, 1, 1};",
+      "static final int[] dy8 = {-1, 0, 1, -1, 1, -1, 0, 1};"
+    ],
+    "description": "Eight-neighbor grid direction vectors"
+  },
+  "ArrayList": {
+    "prefix": "list",
+    "body": [
+      "ArrayList<${1:Integer}> ${2:list} = new ArrayList<>();"
+    ],
+    "description": "Create an ArrayList"
+  },
+  "LinkedList Queue": {
+    "prefix": "linkedlist",
+    "body": [
+      "LinkedList<${1:Integer}> ${2:q} = new LinkedList<>();"
+    ],
+    "description": "Create a LinkedList"
+  },
+  "HashMap": {
+    "prefix": "hm",
+    "body": [
+      "HashMap<${1:Integer}, ${2:Integer}> ${3:map} = new HashMap<>();"
+    ],
+    "description": "Create a HashMap"
+  },
+  "TreeMap": {
+    "prefix": "tm",
+    "body": [
+      "TreeMap<${1:Integer}, ${2:Integer}> ${3:map} = new TreeMap<>();"
+    ],
+    "description": "Create a TreeMap"
+  },
+  "HashSet": {
+    "prefix": "hs",
+    "body": [
+      "HashSet<${1:Integer}> ${2:set} = new HashSet<>();"
+    ],
+    "description": "Create a HashSet"
+  },
+  "TreeSet": {
+    "prefix": "ts",
+    "body": [
+      "TreeSet<${1:Integer}> ${2:set} = new TreeSet<>();"
+    ],
+    "description": "Create a TreeSet"
+  },
+  "Min Priority Queue": {
+    "prefix": "pq",
+    "body": [
+      "PriorityQueue<${1:Integer}> ${2:pq} = new PriorityQueue<>();"
+    ],
+    "description": "Create a min-heap priority queue"
+  },
+  "Max Priority Queue": {
+    "prefix": "maxpq",
+    "body": [
+      "PriorityQueue<${1:Integer}> ${2:pq} = new PriorityQueue<>(Collections.reverseOrder());"
+    ],
+    "description": "Create a max-heap priority queue"
+  },
+  "Deque": {
+    "prefix": "deque",
+    "body": [
+      "Deque<${1:Integer}> ${2:dq} = new ArrayDeque<>();"
+    ],
+    "description": "Create an ArrayDeque"
+  },
+  "Stack": {
+    "prefix": "stack",
+    "body": [
+      "Deque<${1:Integer}> ${2:st} = new ArrayDeque<>();"
+    ],
+    "description": "Create a stack using ArrayDeque"
+  },
+  "Queue": {
+    "prefix": "queue",
+    "body": [
+      "Queue<${1:Integer}> ${2:q} = new ArrayDeque<>();"
+    ],
+    "description": "Create an ArrayDeque-backed queue"
+  },
+  "Frequency Map Increment": {
+    "prefix": "freq",
+    "body": [
+      "${1:map}.merge(${2:x}, 1, Integer::sum);"
+    ],
+    "description": "Increment a frequency map entry"
+  },
+  "Sort Array": {
+    "prefix": "sort",
+    "body": [
+      "Arrays.sort(${1:a});"
+    ],
+    "description": "Sort a primitive array"
+  },
+  "Sort with Comparator": {
+    "prefix": "comparator",
+    "body": [
+      "${1:list}.sort((a, b) -> ${2:Integer.compare(a, b)});"
+    ],
+    "description": "Sort a collection with a comparator"
+  },
+  "Lambda Sort Objects": {
+    "prefix": "lambdasort",
+    "body": [
+      "Arrays.sort(${1:items}, (a, b) -> ${2:Integer.compare(a.value, b.value)});"
+    ],
+    "description": "Sort objects with a lambda comparator"
+  },
+  "Depth First Search": {
+    "prefix": "dfs",
+    "body": [
+      "static void dfs(int u, ArrayList<Integer>[] graph, boolean[] visited) {",
+      "    visited[u] = true;",
+      "    for (int v : graph[u]) {",
+      "        if (!visited[v]) dfs(v, graph, visited);",
+      "    }",
+      "}"
+    ],
+    "description": "Recursive DFS for an adjacency-list graph"
+  },
+  "Breadth First Search": {
+    "prefix": "bfs",
+    "body": [
+      "static int[] bfs(int start, ArrayList<Integer>[] graph) {",
+      "    int[] dist = new int[graph.length];",
+      "    Arrays.fill(dist, -1);",
+      "    Queue<Integer> q = new ArrayDeque<>();",
+      "    dist[start] = 0;",
+      "    q.add(start);",
+      "    while (!q.isEmpty()) {",
+      "        int u = q.poll();",
+      "        for (int v : graph[u]) {",
+      "            if (dist[v] == -1) {",
+      "                dist[v] = dist[u] + 1;",
+      "                q.add(v);",
+      "            }",
+      "        }",
+      "    }",
+      "    return dist;",
+      "}"
+    ],
+    "description": "BFS distances in an unweighted graph"
+  },
+  "Dijkstra": {
+    "prefix": "dijkstra",
+    "body": [
+      "static long[] dijkstra(int start, ArrayList<Edge>[] graph) {",
+      "    long[] dist = new long[graph.length];",
+      "    Arrays.fill(dist, Long.MAX_VALUE);",
+      "    PriorityQueue<State> pq = new PriorityQueue<>(Comparator.comparingLong(s -> s.dist));",
+      "    dist[start] = 0;",
+      "    pq.add(new State(start, 0));",
+      "    while (!pq.isEmpty()) {",
+      "        State cur = pq.poll();",
+      "        if (cur.dist != dist[cur.node]) continue;",
+      "        for (Edge e : graph[cur.node]) {",
+      "            if (cur.dist + e.weight < dist[e.to]) {",
+      "                dist[e.to] = cur.dist + e.weight;",
+      "                pq.add(new State(e.to, dist[e.to]));",
+      "            }",
+      "        }",
+      "    }",
+      "    return dist;",
+      "}",
+      "",
+      "static class Edge {",
+      "    int to;",
+      "    long weight;",
+      "    Edge(int to, long weight) { this.to = to; this.weight = weight; }",
+      "}",
+      "",
+      "static class State {",
+      "    int node;",
+      "    long dist;",
+      "    State(int node, long dist) { this.node = node; this.dist = dist; }",
+      "}"
+    ],
+    "description": "Dijkstra shortest paths for nonnegative edge weights"
+  },
+  "Fenwick Tree": {
+    "prefix": "fenwick",
+    "body": [
+      "static class Fenwick {",
+      "    int n;",
+      "    long[] bit;",
+      "    Fenwick(int n) { this.n = n; bit = new long[n + 1]; }",
+      "    void add(int i, long delta) {",
+      "        for (i++; i <= n; i += i & -i) bit[i] += delta;",
+      "    }",
+      "    long sumPrefix(int i) {",
+      "        long sum = 0;",
+      "        for (i++; i > 0; i -= i & -i) sum += bit[i];",
+      "        return sum;",
+      "    }",
+      "    long sumRange(int l, int r) {",
+      "        return l > r ? 0 : sumPrefix(r) - (l == 0 ? 0 : sumPrefix(l - 1));",
+      "    }",
+      "}"
+    ],
+    "description": "Fenwick tree with zero-based point updates and inclusive range sums"
+  },
+  "Segment Tree Sum": {
+    "prefix": "segtree",
+    "body": [
+      "static class SegmentTree {",
+      "    int n;",
+      "    long[] tree;",
+      "    SegmentTree(long[] a) {",
+      "        n = a.length;",
+      "        tree = new long[2 * n];",
+      "        System.arraycopy(a, 0, tree, n, n);",
+      "        for (int i = n - 1; i > 0; i--) tree[i] = tree[i << 1] + tree[i << 1 | 1];",
+      "    }",
+      "    void set(int index, long value) {",
+      "        int p = index + n;",
+      "        tree[p] = value;",
+      "        while ((p >>= 1) > 0) tree[p] = tree[p << 1] + tree[p << 1 | 1];",
+      "    }",
+      "    long sum(int l, int r) {",
+      "        long result = 0;",
+      "        for (l += n, r += n + 1; l < r; l >>= 1, r >>= 1) {",
+      "            if ((l & 1) != 0) result += tree[l++];",
+      "            if ((r & 1) != 0) result += tree[--r];",
+      "        }",
+      "        return result;",
+      "    }",
+      "}"
+    ],
+    "description": "Iterative segment tree for point assignment and inclusive range sum"
+  },
+  "Greatest Common Divisor": {
+    "prefix": "gcd",
+    "body": [
+      "static long gcd(long a, long b) {",
+      "    while (b != 0) {",
+      "        long t = a % b;",
+      "        a = b;",
+      "        b = t;",
+      "    }",
+      "    return Math.abs(a);",
+      "}"
+    ],
+    "description": "Iterative Euclidean gcd"
+  },
+  "Least Common Multiple": {
+    "prefix": "lcm",
+    "body": [
+      "static long lcm(long a, long b) {",
+      "    if (a == 0 || b == 0) return 0;",
+      "    return Math.abs((a / gcd(a, b)) * b);",
+      "}"
+    ],
+    "description": "Overflow-conscious lcm using gcd"
+  },
+  "Sieve of Eratosthenes": {
+    "prefix": "sieve",
+    "body": [
+      "static boolean[] sieve(int n) {",
+      "    boolean[] prime = new boolean[n + 1];",
+      "    Arrays.fill(prime, true);",
+      "    if (n >= 0) prime[0] = false;",
+      "    if (n >= 1) prime[1] = false;",
+      "    for (int i = 2; (long) i * i <= n; i++) {",
+      "        if (prime[i]) {",
+      "            for (int j = i * i; j <= n; j += i) prime[j] = false;",
+      "        }",
+      "    }",
+      "    return prime;",
+      "}"
+    ],
+    "description": "Sieve primes up to n"
+  },
+  "Fast Power": {
+    "prefix": "pow",
+    "body": [
+      "static long power(long base, long exp) {",
+      "    long result = 1;",
+      "    while (exp > 0) {",
+      "        if ((exp & 1) != 0) result *= base;",
+      "        base *= base;",
+      "        exp >>= 1;",
+      "    }",
+      "    return result;",
+      "}"
+    ],
+    "description": "Binary exponentiation without a modulus"
+  },
+  "Modular Power": {
+    "prefix": "modpow",
+    "body": [
+      "static long modPow(long base, long exp, long mod) {",
+      "    long result = 1 % mod;",
+      "    base %= mod;",
+      "    while (exp > 0) {",
+      "        if ((exp & 1) != 0) result = result * base % mod;",
+      "        base = base * base % mod;",
+      "        exp >>= 1;",
+      "    }",
+      "    return result;",
+      "}"
+    ],
+    "description": "Binary exponentiation modulo mod; products must fit in long"
+  },
+  "Modular Arithmetic": {
+    "prefix": "mod",
+    "body": [
+      "static final long MOD = ${1:1_000_000_007L};",
+      "static long mod(long x) { return (x % MOD + MOD) % MOD; }"
+    ],
+    "description": "Modulus constant and normalized modulo helper"
+  },
+  "nCr with Factorials": {
+    "prefix": "ncr",
+    "body": [
+      "static long[] fact, invFact;",
+      "",
+      "static void initCombinations(int n, long mod) {",
+      "    fact = new long[n + 1];",
+      "    invFact = new long[n + 1];",
+      "    fact[0] = 1;",
+      "    for (int i = 1; i <= n; i++) fact[i] = fact[i - 1] * i % mod;",
+      "    invFact[n] = modPow(fact[n], mod - 2, mod);",
+      "    for (int i = n; i > 0; i--) invFact[i - 1] = invFact[i] * i % mod;",
+      "}",
+      "",
+      "static long nCr(int n, int r, long mod) {",
+      "    if (r < 0 || r > n) return 0;",
+      "    return fact[n] * invFact[r] % mod * invFact[n - r] % mod;",
+      "}"
+    ],
+    "description": "Precompute factorials and inverse factorials for prime modulus"
+  },
+  "Bit Operations": {
+    "prefix": "bits",
+    "body": [
+      "Integer.bitCount(${1:x});",
+      "Long.bitCount(${2:y});",
+      "Integer.highestOneBit(${1:x});",
+      "Integer.lowestOneBit(${1:x});",
+      "Integer.numberOfLeadingZeros(${1:x});",
+      "Integer.numberOfTrailingZeros(${1:x});"
+    ],
+    "description": "Common Java bit-count and bit-position helpers"
+  },
+  "Print Int Array": {
+    "prefix": "printarr",
+    "body": [
+      "out.append(Arrays.toString(${1:a})).append('\\n');"
+    ],
+    "description": "Append an array representation to the output buffer"
+  },
+  "Print Matrix": {
+    "prefix": "printmat",
+    "body": [
+      "for (int[] row : ${1:matrix}) {",
+      "    for (int j = 0; j < row.length; j++) {",
+      "        if (j > 0) out.append(' ');",
+      "        out.append(row[j]);",
+      "    }",
+      "    out.append('\\n');",
+      "}"
+    ],
+    "description": "Append a matrix as space-separated rows"
+  },
+  "Debug Print": {
+    "prefix": "debug",
+    "body": [
+      "System.err.println(\"${1:value} = \" + ${2:value});"
+    ],
+    "description": "Print a labeled debug value to standard error"
+  }
+}
