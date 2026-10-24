@@ -199,7 +199,7 @@
   "Read String Input": {
     "prefix": "rs",
     "body": [
-      "String ${1:s} = fs.nextString();"
+      "String ${1:s} = fs.next();"
     ],
     "description": "Read a String using the main template FastScanner"
   },
@@ -222,46 +222,46 @@
     "prefix": "scanchar",
     "body": [
       "static char scanChar() throws IOException {",
-      "    return nextToken().charAt(0);",
+      "    return fs.nextChar();",
       "}"
     ],
-    "description": "Read the first character of the next token"
+    "description": "Read the first character of the next token using the main template FastScanner"
   },
   "Read Character Array": {
     "prefix": "chararr",
     "body": [
       "static char[] scanCharArray() throws IOException {",
-      "    return nextToken().toCharArray();",
+      "    return fs.nextToken().toCharArray();",
       "}"
     ],
-    "description": "Read a token as a character array"
+    "description": "Read a token as a character array using the main template FastScanner"
   },
   "Read String Array": {
     "prefix": "strarr",
     "body": [
       "static String[] scanStringArray(int n) throws IOException {",
       "    String[] s = new String[n];",
-      "    for (int i = 0; i < n; i++) s[i] = scanString();",
+      "    for (int i = 0; i < n; i++) s[i] = fs.nextString();",
       "    return s;",
       "}"
     ],
-    "description": "Read n strings into an array"
+    "description": "Read n strings into an array using the main template FastScanner"
   },
   "Read Int Array": {
     "prefix": "arr",
     "body": [
       "int[] ${1:a} = new int[${2:n}];",
-      "for (int i = 0; i < ${2:n}; i++) ${1:a}[i] = ${3:scanInt()};"
+      "for (int i = 0; i < ${2:n}; i++) ${1:a}[i] = fs.nextInt();"
     ],
-    "description": "Read an int array"
+    "description": "Read an int array using the main template FastScanner"
   },
   "Read Long Array": {
     "prefix": "longarr",
     "body": [
       "long[] ${1:a} = new long[${2:n}];",
-      "for (int i = 0; i < ${2:n}; i++) ${1:a}[i] = ${3:scanLong()};"
+      "for (int i = 0; i < ${2:n}; i++) ${1:a}[i] = fs.nextLong();"
     ],
-    "description": "Read a long array"
+    "description": "Read a long array using the main template FastScanner"
   },
   "Read Int Matrix": {
     "prefix": "mat",
@@ -270,11 +270,11 @@
       "    int[][] a = new int[n][m];",
       "    for (int i = 0; i < n; i++)",
       "        for (int j = 0; j < m; j++)",
-      "            a[i][j] = scanInt();",
+      "            a[i][j] = fs.nextInt();",
       "    return a;",
       "}"
     ],
-    "description": "Read an n by m int matrix"
+    "description": "Read an n by m int matrix using the main template FastScanner"
   },
   "Read Long Matrix": {
     "prefix": "longmat",
@@ -283,11 +283,11 @@
       "    long[][] a = new long[n][m];",
       "    for (int i = 0; i < n; i++)",
       "        for (int j = 0; j < m; j++)",
-      "            a[i][j] = scanLong();",
+      "            a[i][j] = fs.nextLong();",
       "    return a;",
       "}"
     ],
-    "description": "Read an n by m long matrix"
+    "description": "Read an n by m long matrix using the main template FastScanner"
   },
   "Prefix Sum": {
     "prefix": "prefix",

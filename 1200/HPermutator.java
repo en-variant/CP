@@ -1,23 +1,35 @@
-
 import java.io.*;
 import java.util.*;
 
-public class BFireworks {
+public class HPermutator {
     static FastScanner fs = new FastScanner();
     static StringBuilder out = new StringBuilder();
 
     public static void main(String[] args) throws Exception {
-        int t = fs.nextInt();
+        int t = 1;
         while (t-- > 0) solve();
         System.out.print(out);
     }
 
     static void solve() throws Exception {
-        long a = fs.nextLong();
-        long b = fs.nextLong();
-        long k = fs.nextLong();
+        int n = fs.nextInt();
+        long[] arr = new long[n];
+        for (int i = 0; i < n; i++){
+            long val = 1L*(i+1)*(n-i);
+            arr[i] = (val)*(fs.nextInt());
+        }
 
-        long res = (k/a)+(k/b)+2;
+        int[] arr2 = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr2[i] = fs.nextInt();
+        }
+
+        Arrays.sort(arr);
+        Arrays.sort(arr2);
+        long res = 0;
+        for (int i = 0; i < n; i++) {
+            res += arr[i]*arr2[n-1-i];         // why this?
+        }
         System.out.println(res);
     }
 
@@ -54,7 +66,7 @@ public class BFireworks {
 /* import java.io.*;
 import java.util.*;
 
-public class BFireworks {
+public class HPermutator {
     static FastScanner fs = new FastScanner();
     static StringBuilder out = new StringBuilder();
 
@@ -65,37 +77,35 @@ public class BFireworks {
     }
 
     static void solve() throws Exception {
-        int testCases = fs.nextInt();
-        while (testCases-- > 0) {
-        long a = fs.nextLong();
-        long b = fs.nextLong();
-        long k = fs.nextLong();
-
-        long lcmVal = lcm(a, b);
-        long min = Math.min(a, b);
-        long x = min+k+1;
-
-        long countA = 0;
-        long countB = 0;
-
-        countA += x/a;
-        countB += x/b;
-
-        long count = countA+countB+(x/lcmVal);
-        out.append(count).append('\n');
-    }
-    }
-    static long lcm(long a, long b) {
-        if (a == 0 || b == 0) return 0;
-        return Math.abs((a / gcd(a, b)) * b);
-    }
-    static long gcd(long a, long b) {
-        while (b != 0) {
-            long t = a % b;
-            a = b;
-            b = t;
+        int n = fs.nextInt();
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            arr[i][0] = fs.nextInt();
+            arr[i][1] = i;
         }
-        return Math.abs(a);
+
+        int[] arr2 = new int[n];
+        for (int i = 0; i < n; i++) arr2[i] = fs.nextInt();
+
+        // Arrays.sort(arr);
+        Arrays.sort(arr,(a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(arr2);
+        int left = 0;
+        int right = n-1;
+        long res = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            long temp = 1L*(arr[i][1]+1)*(n-arr[i][1]);
+            if (arr[i][0] > 0) {
+                res += temp*(arr[i][0])*(arr2[left]);
+                left++;
+            }
+            else{
+                res += temp*(arr[i][0])*(arr2[right]);
+                right--;
+            }
+        }
+        System.out.println(res);
     }
 
     static class FastScanner {

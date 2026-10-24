@@ -1,0 +1,87 @@
+import java.io.*;
+import java.util.*;
+
+public class AMaximAndBiology {
+    static FastScanner fs = new FastScanner();
+    static StringBuilder out = new StringBuilder();
+
+    public static void main(String[] args) throws Exception {
+        int t = 1;
+        while (t-- > 0)
+            solve();
+        System.out.print(out);
+    }
+
+    static void solve() throws Exception {
+        int n = fs.nextInt();
+        String s = fs.next();
+        int curr = 0;
+        int min = Integer.MAX_VALUE;
+        String referance = "ACTG";
+
+        for (int i = 0; i < s.length() - 3; i++) {
+            int index = i;
+            for (int j = 0; j <= 3; j++) {
+                int val = Math.abs(s.charAt(index) - referance.charAt(j));
+                if (val > 13) {
+                    val = 26 - val;
+                }
+                curr += val;
+                index++;
+            }
+
+            min = Math.min(min, curr);
+            curr = 0;
+        }
+        System.out.println(min);
+    }
+
+    static class FastScanner {
+        private final InputStream in = System.in;
+        private final byte[] buffer = new byte[1 << 16];
+        private int ptr, len;
+
+        private int read() throws IOException {
+            if (ptr >= len) {
+                len = in.read(buffer);
+                ptr = 0;
+                if (len <= 0)
+                    return -1;
+            }
+            return buffer[ptr++];
+        }
+
+        String nextToken() throws IOException {
+            StringBuilder s = new StringBuilder();
+            int c;
+            do {
+                c = read();
+            } while (c <= ' ' && c != -1);
+            while (c > ' ') {
+                s.append((char) c);
+                c = read();
+            }
+            return s.toString();
+        }
+
+        String next() throws IOException {
+            return nextToken();
+        }
+
+        int nextInt() throws IOException {
+            return Integer.parseInt(nextToken());
+        }
+
+        long nextLong() throws IOException {
+            return Long.parseLong(nextToken());
+        }
+
+        double nextDouble() throws IOException {
+            return Double.parseDouble(nextToken());
+        }
+
+        char nextChar() throws IOException {
+            return nextToken().charAt(0);
+        }
+    }
+}

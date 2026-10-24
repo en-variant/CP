@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DAliBabaAndPuzzles",
+            "request": "launch",
+            "mainClass": "DAliBabaAndPuzzles",
+            "projectName": "CP_6e210f29"
+        },
+        {
+            "type": "java",
+            "name": "ACatchTheCoin",
+            "request": "launch",
+            "mainClass": "ACatchTheCoin",
+            "projectName": "CP_6e210f29"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "CP_6e210f29"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "test.test",
+            "projectName": "CP_6e210f29"
+        },
+        {
+            "type": "java",
+            "name": "access",
+            "request": "launch",
+            "mainClass": "src.access",
+            "projectName": "CP_6e210f29"
+        },
+        {
+            "type": "java",
+            "name": "BHemoseShopping",
+            "request": "launch",
+            "mainClass": "BHemoseShopping",
+            "projectName": "CP_6e210f29"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
