@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ACircularLocalMinimax",
+            "request": "launch",
+            "mainClass": "ACircularLocalMinimax",
+            "projectName": "CP_6e210f29"
+        },
+        {
+            "type": "java",
             "name": "ASubsetSelecting",
             "request": "launch",
             "mainClass": "ASubsetSelecting",
